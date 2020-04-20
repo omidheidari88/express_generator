@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-
-require('./middlewares/middleware')(app);
+require('./bootstrap/')(app);
+require('./middlewares/')(app);
 require('./router')(app);
 
 const connection = () => {

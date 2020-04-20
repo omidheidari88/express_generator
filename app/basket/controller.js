@@ -1,4 +1,6 @@
-exports.index = async (req, res) => {};
+exports.index = async (req, res) => {
+	res.send('Hello from BASKET');
+};
 
 exports.add = async (req, res) => {};
 
