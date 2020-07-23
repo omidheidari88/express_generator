@@ -1,3 +1,3 @@
 exports.index = async (req, res) => {
-	res.send('Hello from USER');
+	res.status(201).send('Hello from USER');
 };

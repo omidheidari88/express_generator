@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const session = require('express-session');
 const sessionFileStore = require('session-file-store')(session);
 module.exports = (app) => {
@@ -12,4 +13,5 @@ module.exports = (app) => {
 	);
 	app.use(bodyParser.urlencoded({extended: false}));
 	app.use(bodyParser.json());
+	app.use(cors());
 };
