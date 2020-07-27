@@ -1,11 +1,16 @@
 const connection = require('../../database/connection/mysql');
 
-exports.get = async () => {
+exports.getItems = async () => {
 	const db = await connection();
-	const [records] = await db.query(`SELECT * FROM products`);
+	const [records] = await db.query(`SELECT * FROM orders`);
 	return records;
 };
-exports.create = async (params) => {
+exports.insert = async (params) => {
+	const db = await connection();
+	const [result] = await db.query(`INSERT INTO orders SET ?`, [params]);
+	return result.insertId;
+};
+exports.createSelect = async (params) => {
 	const db = await connection();
 	const [result] = await db.query(`INSERT INTO orders SET ?`, [params]);
 	const [records] = await db.query(`SELECT * FROM orders WHERE id=? LIMIT 1`, [result.insertId]);
